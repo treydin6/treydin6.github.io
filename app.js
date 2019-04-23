@@ -20,7 +20,7 @@ var createTodo = function(todo, ddate, clas, subject) {
 	data += "&clas=" + encodeURIComponent(clas);
 	data += "&subject=" + encodeURIComponent(subject);
 
-	fetch("http://localhost:8080/todos", {
+	fetch("https://homework-todo-list.herokuapp.com/todos", {
 	    method: 'POST',
 	    body: data,
 	    credentials: 'include',
@@ -37,7 +37,7 @@ var createTodo = function(todo, ddate, clas, subject) {
 var deleteTodo = function( id ) {
 	console.log(id)
 	// put an alert saying do you really want to delete the entry.
-	fetch(`http://localhost:8080/todos/${id}`, {
+	fetch(`https://homework-todo-list.herokuapp.com/todos/${id}`, {
 		method: 'DELETE',
 		credentials: 'include'
 	}).then(function(response){
@@ -122,7 +122,7 @@ LoginButton.onclick = function() {
 var login = function( uNameInput, passwordInput) {
 	var h2 = document.querySelector("#h2")
 	datdastring = 'email='+encodeURIComponent(uNameInput)+'&password='+encodeURIComponent(passwordInput)
-	fetch("http://localhost:8080/sessions", {
+	fetch("https://homework-todo-list.herokuapp.com/sessions", {
 		method: 'POST',
 		body: datdastring,
 		credentials: 'include'
@@ -174,7 +174,7 @@ var createNewUser = function(fname, lname, email, password) {
 	data += "&email=" + encodeURIComponent(email);
 	data += "&password=" + encodeURIComponent(password);
 
-	fetch("http://localhost:8080/users", {
+	fetch("https://homework-todo-list.herokuapp.com/users", {
 		method: 'POST',
 		body: data,
 		credentials: 'include'
@@ -259,7 +259,7 @@ register.onclick = function(){
 // ----->>>>> Get Todos <<<<<----- \\
 
 var getTodos = function() {
-	fetch("http://localhost:8080/todos", { 
+	fetch("https://homework-todo-list.herokuapp.com/todos", { 
 		credentials: 'include'
 	}).then(function (response) {
 		var stat = response.status
